@@ -1,20 +1,18 @@
 export default {
-  projectLink: "https://github.com/wenwkich/scaffold-wc-web3", // GitHub link in the navbar
-  docsRepositoryBase:
-    "https://github.com/wenwkich/scaffold-wc-web3/blob/master", // base URL for the docs repository
-  titleSuffix: " – scaffold-wc-web3",
+  projectLink: "https://github.com/wenwkich/web3Devshill", // GitHub link in the navbar
+  docsRepositoryBase: "https://github.com/wenwkich/web3Devshill/blob/master", // base URL for the docs repository
+  titleSuffix: " – Web3DevShill",
   nextLinks: true,
   prevLinks: true,
   search: true,
   customSearch: null, // customizable, you can use algolia for example
   darkMode: true,
   footer: true,
-  footerText: `MIT ${new Date().getFullYear()} © Wendy Chan.`,
+  footerText: `MIT ${new Date().getFullYear()} © Wendy Chan. `,
   footerEditLink: `Edit this page on GitHub`,
   logo: (
     <>
-      <svg>...</svg>
-      <span>Next.js Static Site Generator</span>
+      <span>Web3DevShill Guide</span>
     </>
   ),
   head: (
@@ -22,9 +20,9 @@ export default {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta
         name="description"
-        content="scaffold-wc-web3: the opinionated approach to start your web3 journey"
+        content="Web3DevShill: My personal opinion, example and guide on your web3 dev journey"
       />
-      <meta name="og:title" content="scaffold-wc-web3" />
+      <meta name="og:title" content="web3" />
     </>
   ),
 };
