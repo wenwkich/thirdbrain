@@ -1,0 +1,50 @@
+---
+title: Bootstrap Your Web3 App
+---
+
+# Bootstrap Your Web3 App
+
+At first, you would want to bootstrap rather than build from scratch, so here are some
+personal opinions on bootstrap choices
+
+## Create React App (CRA)
+
+A lot of beginners use [Create React App](https://github.com/facebook/create-react-app) or CRA
+to bootstrap a Single Page App (SPA) since it gives you a lot of default configurations
+so that you can quickly setup an app with no extra efforts (this fits the
+"Conventions over Configuration" paradigm).
+
+To override some of the configurations (such as babel, webpack, eslint), you can use
+[CRACO](https://github.com/dilanx/craco)
+to do that. You need knowledge on Webpack to configure that.
+Here's a [guide](https://www.sitepoint.com/webpack-beginner-guide/) on Webpack
+since sometimes you need to polyfill nodejs library like `crypto` in web3 development
+
+## Alternative to CRA to speed up rendering time
+
+I think the rendering time of CRA is too slow, so I would use [vite](https://vitejs.dev/) to bootstrap an SPA.
+
+## Alternative to CRA for importing Web3 Libraries as well
+
+Here are some good resource on bootstrapping web3 dapp with templates:
+
+- [Create Eth App](https://github.com/paulrberg/create-eth-app),
+  used [useDapp](https://github.com/TrueFiEng/useDApp) library
+- [Scaffold-ETH](https://github.com/scaffold-eth/scaffold-eth)
+
+I would personally prefer bootstrapping the app using these tools and switch to `vite`
+for faster rendering, as it's easier to migrate to `vite` instead of installing all
+the web3 libraries from scratch. Here's a [guide](https://cathalmacdonnacha.com/migrating-from-create-react-app-cra-to-vite)
+on how to migrate.
+
+## Server Side Rendering
+
+Another thing to consider when bootstrapping is whether you want SSR.
+
+Typically, if you want your site to be indexable to google and other site such as Twitter
+to show a preview of your site, you should consider server-side rendering.
+
+Also, SSR is typcially faster to load as it doesn't load the whole app (it loads on demand),
+while CSR (or single page app) are smoother to use as it doesn't refresh when you go to another page.
+
+Use [Create Next App](https://nextjs.org/docs/api-reference/create-next-app) if this is your choice.

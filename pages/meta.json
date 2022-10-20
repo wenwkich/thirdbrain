@@ -1,5 +1,6 @@
 {
   "index": "Welcome",
+  "prerequisite": "Prerequisite",
   "frontend": "Frontend Development",
   "contract": "Smart Contract Development",
   "backend": "Backend Development"

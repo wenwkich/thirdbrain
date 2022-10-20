@@ -1,3 +1,9 @@
 {
-  "get-started": "Frontend Get Started"
+  "get-started": "Frontend Get Started",
+  "bootstrap": "Bootstrap Your Web3 App",
+  "style": "Style",
+  "react-design-patterns": "React Design Patterns",
+  "state-management": "State Management",
+  "web3-libraries": "Web3 Libraries",
+  "examples": "Examples"
 }

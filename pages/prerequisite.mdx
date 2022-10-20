@@ -1,0 +1,28 @@
+---
+title: Prerequisite
+---
+
+# Prerequisite
+
+## Package Management
+
+If you're really a newbie, you probably still don't know where to get started.
+No matter you want to get started on smart contract development or frontend development,
+You should probably start on installation of Node.js & NPM (both frontend and smart contract
+frameworks rely on Node.js and npm).
+As I use Mac, it's convenient for me to install and manage the version using
+[nvm](https://github.com/nvm-sh/nvm).
+
+If you're still using `npm`, I would suggest to use [yarn](https://yarnpkg.com/) as it's much faster to
+add a package & especially when you need to install the package after cloning other's code (since it's
+parallel).
+After you install `npm`, you use `npm install --global yarn` command to install `yarn`.
+
+Then you just have to use:
+
+- `yarn` to replace `npm install`
+- `yarn add <package-name>` to replace `npm install <package-name>`
+- `yarn create react-app` to replace `npm create-react-app`
+
+You'll also need to learn how to write the `scripts` section in `package.json`,
+see [offical doc](https://docs.npmjs.com/cli/v8/using-npm/scripts)
