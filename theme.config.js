@@ -1,7 +1,7 @@
 export default {
-  projectLink: "https://github.com/wenwkich/web3Devshill", // GitHub link in the navbar
-  docsRepositoryBase: "https://github.com/wenwkich/web3Devshill/blob/master", // base URL for the docs repository
-  titleSuffix: " – Web3DevShill",
+  projectLink: "https://github.com/wenwkich/wenwkichpok", // GitHub link in the navbar
+  docsRepositoryBase: "https://github.com/wenwkich/wenwkichpok/blob/master", // base URL for the docs repository
+  titleSuffix: " – PoK",
   nextLinks: true,
   prevLinks: true,
   search: true,
@@ -12,7 +12,7 @@ export default {
   footerEditLink: `Edit this page on GitHub`,
   logo: (
     <>
-      <span>Web3DevShill Guide</span>
+      <span>Wendy's PoK on Web2/3</span>
     </>
   ),
   head: (

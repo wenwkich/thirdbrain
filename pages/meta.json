@@ -1,7 +1,9 @@
 {
   "index": "Welcome",
-  "prerequisite": "Prerequisite",
+  "prereq": "Prerequisite",
   "frontend": "Frontend Development",
   "contract": "Smart Contract Development",
-  "backend": "Backend Development"
+  "backend": "Backend Development",
+  "cryptography": "Cryptography",
+  "blockchain-security": "Blockchain Security"
 }

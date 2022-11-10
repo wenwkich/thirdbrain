@@ -4,41 +4,51 @@ title: Welcome
 
 # Welcome
 
-This is my very detailed personal opinions, examples, guide, curated resources on web3 development.
+This is my very detailed personal opinions, examples, guide, curated resources on web2/3 development.
 
-No matter you're complete newbie to web dev or web2 dev with some experience, hope you'll find this doc helpful.
+No matter you're complete newbie to even web2 or web2/3 dev with some experience, hope you'll find this doc helpful.
+
+**If you're really noob, please get started with "Prerequisite", if you're not, skip this part cuz that's too many baby steps**
 
 Here are some of the good resources you can refer to as well:
 
 - [devpill.me](https://www.devpill.me/)
 - [useWeb3.xyz](https://www.useweb3.xyz/)
+- [Learn Web3](https://learnweb3.io/)
 - [DeFi-Developer-Road-Map](https://github.com/OffcierCia/DeFi-Developer-Road-Map)
 - [awesome-web3](https://github.com/ahmet/awesome-web3) (Reminder: If you want to find any curated resource, just add `awesome-` in front of your topic on Github)
 
 ## Web2 Concept Pre-req
 
 If you don't even know what frontend and backend are (the traditional architecture),
-you need to know about these concepts of web2 first:
+you need to know about these concepts of web2 first (google it if you don't understand):
 
-- http (request & response, client vs server)
-- frontend is on the client side
-  - responsible for presentation, it's the code lying in your browser
-  - always initiates the request
-- backend is on the server side, it's the code lying in the remote, centralized server
+- [HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages)
+  - request & response
+  - method
+    - specify what actions, typcially GET (get resource), POST (create new resource), PUT (modify resource) and DELETE (delete resource)
+  - URL
+    - use URI to specify location
+  - header
+  - client vs server
+- **Frontend** is on the client side
+  - Responsible for presentation, it's the code lying in your browser
+  - Always initiates the request
+- **Backend** is on the server side, it's the code lying in the remote, centralized server
   - responsible for handling client's request, biz logic, data persistance
   - listen to request, then process the request to send the response
 - Data persistence
   - use centralized database to store your data
-- API (an **interface** that frontend and backend agree on, used for communication)
-- RESTful API
-  - use URI to specify location
-  - use METHOD to specify what actions,
-    typcially GET (get resource), POST (create new resource), PUT (modify resource) and DELETE (delete resource)
+- [API](https://www.redhat.com/en/topics/api/what-are-application-programming-interfaces) (an **interface** that softwares agree on, used for communication)
+- [REST API](https://www.redhat.com/en/topics/api/what-is-a-rest-api)
+  - a stateless interface that frontend and backend agree on, typcially over HTTP
   - use JSON to transmit the payload typcially
 - Identity & Authentication
   - Register & Login
-  - Account name & password
-  - Backend use session or jwt to identify user to control and restrict access to user
+  - Username & password
+  - Backend use Session or JWT (and other stuff) to identify user, then find user information in the database to control and restrict access to user
+
+BTW, this [article](https://github.com/alex/what-happens-when) gives a great detailed review of what happens under the scene when you use the browser
 
 ## Web2 vs Web3
 
@@ -47,7 +57,7 @@ Web3 typically differs from web2 from following aspect:
 - use **decentralized** infrastructures to (partially) replace your centralized
   backend server, typically using the blockchain
 - use smart contract lying in blockchain to serve client's request & store your data
-- still uses the http protocol to transmit data underlyingly, not doesn't interact thru RESTful API
+- still uses the http protocol (or WebSocket) to transmit data underlyingly, instead of RESTful API
   - use [ABI](https://docs.soliditylang.org/en/v0.5.3/abi-spec.html) to "send transaction" to blockchain
     communicate between smart contract & client
     - consists of
@@ -59,7 +69,7 @@ Web3 typically differs from web2 from following aspect:
   and [Wallets](https://github.com/ethereumbook/ethereumbook/blob/develop/05wallets.asciidoc)
   - user sign a transaction which is verifiable by anyone **without revealing the private key (the secret)**
     and populated it to blockchain instead of giving username & password to server to authenticate first
-  - smart contract use wallet address to restrict access to some accounts
+  - smart contract can access your wallet address, so it's natural that they can restrict access to some addresses
 
 I recommend reading [Mastering Ethereum](https://github.com/ethereumbook/ethereumbook)
 before getting started on web3 dev.
