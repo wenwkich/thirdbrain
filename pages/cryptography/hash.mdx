@@ -102,13 +102,13 @@ understand if you don't look at the specific calculations:
   iterations, whereas SHA-512 uses 80 constant 32-bits words
 
 There's a new family SHA-3, which contains Keccak-256 (solidity dev should be
-very familiar with)
+very familiar with it).
 
 The major difference is that it uses
 [sponge functions](https://keccak.team/sponge_duplex.html), which solves a
 vulnerability that SHA-1 and some of the SHA-2 might face:
 [length-extension attacks](https://crypto.stackexchange.com/questions/3978/understanding-the-length-extension-attack)
 (Heckers could embed the message at the end to reproduce the collision without
-knowing the message)
+knowing the message).
 
 Most blockchains use SHA-256 / Keccak-256 algorithm which are collison-proof.
