@@ -5,14 +5,13 @@ title: State Management
 # State Management
 
 State Management are almost the most tricky part about React. Here's why you
-might want to use a State Management Library
+might want to use a State Management Library.
 
 ## Redux
 
 ### Using Redux could make code a lot more cleaner:
 
-Writing `setState(state => ({...state, updatedAttr}))` in everywhere is annoying,
-especially some of their logic could be repeatedly appear in code.
+Writing `setState(state => ({...state, updatedAttr}))` in everywhere is annoying.
 That's why Redux uses `reducer` to encapsulate and record the update logic,
 this can effectively avoid the copy and paste mistake and having to use global search
 to change the update logic in case there is change in the state structure
@@ -20,7 +19,7 @@ to change the update logic in case there is change in the state structure
 
 First we define a reducer to define actions and transformation of data:
 
-```jsx
+```js
 export default function todosReducer(state = initialState, action) {
   switch (action.type) {
     case 'todos/todoAdded': {
@@ -37,9 +36,9 @@ export default function todosReducer(state = initialState, action) {
 }
 ```
 
-Then in the component, the code looks like this
+Then in the component, the code looks like this:
 
-```jsx
+```js
 const TodoList = () => {
   ...
   const dispatch = useDispatch()
@@ -60,7 +59,7 @@ const TodoList = () => {
 
 ### Redux also enforces you to use immutable state and pure functions to update the state
 
-There are some principle with redux to ensure the state update is predictable, including
+There are some principle with redux to ensure the state update is predictable, including:
 
 - states are read-only
 - using a pure function to update the state using `reducer`,
@@ -100,7 +99,7 @@ A common problem with a lot of React user is that when dealing with a tree of ne
 we have the pass the data all the way from parent component to child component using prop,
 which is commonly referred as prop drilling like this:
 
-```jsx
+```js
 import React, { useState } from "react";
 
 function Parent() {
@@ -145,14 +144,14 @@ export default Parent;
 This is a vertical issue, there is also horizontal issue that a
 component might need to pass down a lot of properties like this:
 
-```jsx
+```js
 <ChildC id={data.id} aName={data.aName} bName={data.bName} ... />
 ```
 
 By using Redux, we don't need to pass the component properties
 like this anymore, we just need to use the selector to get the states like this:
 
-```jsx
+```js
 function ChildC() {
   const { id, aName, bName, fName, lName } = useSelector((state) => state);
   return (
@@ -167,16 +166,16 @@ function ChildC() {
 ### React Thunk to handle async flow
 
 I think the biggest upside of Redux is that it actually allows
-you to write real async flow when updating the global state
+you to write real async flow when updating the global state.
 
 We introduce the concept of middleware now, which is similar to Express
 and Axios or Filters in Spring Boot, you could put middlewares
 (third party or even custom) between the action and the reducer.
-One of it is to solve the `async` logic flow using `Thunk`
+One of it is to solve the `async` logic flow using `Thunk`.
 
 The `Thunk` framework itself is very simple, looks like this:
 
-```jsx
+```js
 const thunkMiddleware =
   ({ dispatch, getState }) =>
   (next) =>
@@ -193,7 +192,7 @@ const thunkMiddleware =
 
 To use it, we need to write a action creator (higher order function) like this:
 
-```jsx
+```js
 export const saveNewTodo = (text) => async (dispatch, getState) {
     const initialTodo = { text }
     const response = await client.post(..., { todo: initialTodo })
@@ -202,9 +201,9 @@ export const saveNewTodo = (text) => async (dispatch, getState) {
 ```
 
 To dispatch the save todo in event handler, we need to call the
-action creator to create a thunk function, then pass the thunk to dispatch
+action creator to create a thunk function, then pass the thunk to dispatch:
 
-```jsx
+```js
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 

@@ -14,4 +14,18 @@ Between these two choices, much more people prefer to use `ethers.js`. I prefer 
 to generate the types at first with ethers.js used underlying (If you're only a frontend dev,
 talk to your smart contract devs to generate the types files for you).
 
-Also, [useDapp](https://github.com/TrueFiEng/useDApp) is recommended as it integrates with React.
+## Web3 wallet connectivity library
+
+There are a lot of libraries handling the connectvity to the web3 wallet, the most used one is
+[web3modal](https://web3modal.com/).
+
+And I would like to highlight another one that has a more friendly interface, that is [web3-onboard](https://onboard.blocknative.com/).
+
+## Libraries with React hooks
+
+[useDapp](https://github.com/TrueFiEng/useDApp) as it provides easy to use React hooks and you can integrate it with
+web3modal or web3-onboard when initiating connection, just pass the `provider` object to useDApp's `activate` function.
+
+Also, there's another library [wagmi](https://wagmi.sh/) which provides more utilities such as erc20 abi.
+
+Example code more to come.

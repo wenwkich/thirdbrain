@@ -25,4 +25,5 @@ export default {
       <meta name="og:title" content="web3" />
     </>
   ),
+  defaultMenuCollapsed: true,
 };

@@ -1,16 +1,16 @@
 ---
-title: Bash Commands & Dev Operations
+title: Bash Commands & Git
 ---
 
-# Bash Commands & Dev Operations
+# Bash Commands & Git
 
-If you're just getting started, you should also be familiar with some very easy bash commands such as file manipulation as your first step
+If you're just getting started, you should also be familiar with some very easy bash commands such as file manipulation as your first step.
 
-I recalled my most early day to dev, this part is probably the most uncomfortable thing to get started
+I recalled my most early day to dev, this part is probably the most uncomfortable thing to get started.
 
 You can refer to this [cheatsheet](https://cheatography.com/davechild/cheat-sheets/linux-command-line/) and this [video](https://www.youtube.com/watch?v=uwAqEzhyjtw&ab_channel=TraversyMedia)
 
-Watching the video is highly recommended cuz you can follow along with voice over
+Watching the video is highly recommended cuz you can follow along with voice over.
 
 For me, I most often use the following thing:
 
@@ -30,4 +30,35 @@ For me, I most often use the following thing:
 
 Next thing a developer always use is the `git` tool. And you should register a Github Account btw.
 
-Github is a version control tool that allows people to get started on the
+Github is a version control tool that allows you to do the following:
+
+- create a repository (repo) to manage your code
+- track the changes in your code in the smallest unit of a "commit"
+- "revert" your code if you made a mistake
+- "push" and backup your code to the remote
+- "pull" and sync with the remote
+- allows multiple people to collab and "merge" the changes
+- allows different version to exist
+- "fork" (usually for contribution) or "clone" (another word for download) other's code to work as a base
+
+**The most important thing (or this is some common sense maybe) is to not store sensitive information (i.e. your private key) in Github!!**
+
+**Always remember to use `.gitignore`!!!!**
+
+A typical user flow to git will be like this:
+
+1. create a repo in a directory using `git init`
+2. write a `.gitignore` to prevent some files from uploaded to the remote
+3. write something and add some files and use `git add .` to stage all of your code
+4. write a commit message: `git commit -m '<your message>'`
+5. if you haven't added the remote, after you create a repo on github and copy the command of adding a remote
+6. switch your branch to `main`: `git checkout -b main` (warning: not a good practice)
+7. push your code: `git push -u origin main`
+
+Typically, when you collab with other, plz remember not to commit code on the `main` or `master` branch, open a new branch with format like `feat:some_new_feature` or `fix:a_fix` and then submit a pull request (PR) for the owner to review.
+
+To study the topic in depth (you want to especially know how to merge code manually if there's a lot of conflict happening), go [here](https://www.atlassian.com/git/tutorials).
+
+## Other tools
+
+After you get started with these two, the rest of cli will not be so strange to you, it's all about installing, reading the docs and find ways (google) to debug.
