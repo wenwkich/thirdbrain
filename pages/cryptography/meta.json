@@ -4,5 +4,6 @@
   "key-exchange": "Key Exchange",
   "symmetric-cipher": "Symmetric Cipher",
   "asymmetric-cipher-ecc": "Asymmetric Cipher and ECC",
-  "digital-signature": "Digital Signature"
+  "digital-signature": "Digital Signature",
+  "zero-knowledge": "ZK"
 }
