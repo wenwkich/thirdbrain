@@ -4,25 +4,38 @@ title: React Design Patterns
 
 # React Design Patterns
 
-[Patterns.dev](https://www.patterns.dev/) is a great resource on design patterns for js and React.
-I would like to highlight the following that has been used extensively:
+[Patterns.dev](https://www.patterns.dev/) is a great resource on design patterns
+for js and React. I would like to highlight the following that has been used
+extensively:
 
 - Functional Component rather than Class Component
-- use functional programming on iterables
-  - utility library such as [lodash](https://lodash.com/)
+  - this is a personal preference, since it makes the component look a lot
+    cleaner
 - Hooks
   - `useState()` hook to store simple data
-  - `useEffect()` hook to replace `componentDidMount()` `componentWillUnmount()` and `componentDidUpdate()`
-    to manage lifecycles
-  - `useConext()` hook to allow you access global state by `Context` API of react
-  - `useReducer()` hook to allow you use Redux-style code to manage state lifecycle
-  - `useCallback()` hook to return memorized callback, here's a [guide](https://dmitripavlutin.com/react-usecallback/)
+  - `useEffect()` hook to replace `componentDidMount()` `componentWillUnmount()`
+    and `componentDidUpdate()` to manage lifecycles
+  - `useConext()` hook to allow you access global state by `Context` API of
+    react
+  - `useReducer()` hook to allow you use Redux-style code to manage state
+    lifecycle
+  - `useCallback()` hook to return memorized callback, here's a
+    [guide](https://dmitripavlutin.com/react-usecallback/)
   - `useRef()` hook to fold elements and mutable values
-  - react hook utility such as [react-use](https://github.com/streamich/react-use)
+  - react hook utility such as
+    [react-use](https://github.com/streamich/react-use)
     - `useThrottle()` and `useDebounce()` allows you to reduce frequent calls
-  - [SWR](https://swr.vercel.app/): A strategy to first return the data from cache (stale), then send the fetch request (revalidate), and finally come with the up-to-date data
-    - similar library that does this is [TanStack Query](https://tanstack.com/query/v4/?from=reactQueryV3&original=https://react-query-v3.tanstack.com/)
+  - [SWR](https://swr.vercel.app/): A strategy to first return the data from
+    cache (stale), then send the fetch request (revalidate), and finally come
+    with the up-to-date data
+    - similar library that does this is
+      [TanStack Query](https://tanstack.com/query/v4/?from=reactQueryV3&original=https://react-query-v3.tanstack.com/)
 - HOC
   - allows you the create similar logic for different component
+- use functional programming more
+  - utility library such as [lodash](https://lodash.com/)
+  - read more about fp in
+    [mostly-adequate-guide](https://mostly-adequate.gitbook.io/mostly-adequate-guide/)
 - Route Based Splitting
   - dynamic load content based on route
+  - such as you can put contract address in the path

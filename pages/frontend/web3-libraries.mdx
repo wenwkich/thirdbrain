@@ -6,26 +6,37 @@ title: Web3 Libraries
 
 React is pretty basic web2 stuff, but if you want to write web3 app, you need a
 library to glue the web2 stuffs and web3 stuffs together, that is
-[web3.js](https://github.com/web3/web3.js) and [ethers.js](https://github.com/ethers-io/ethers.js/),
-which I think it's simple to get started.
+[web3.js](https://github.com/web3/web3.js) and
+[ethers.js](https://github.com/ethers-io/ethers.js/), which I think it's simple
+to get started.
 
-Between these two choices, much more people prefer to use `ethers.js`. I prefer to use
-[Typechain](https://github.com/dethcrypto/TypeChain)
-to generate the types at first with ethers.js used underlying (If you're only a frontend dev,
+Between these two choices, much more people prefer to use `ethers.js`. I prefer
+to use [Typechain](https://github.com/dethcrypto/TypeChain) to generate the
+types at first with ethers.js used underlying (If you're only a frontend dev,
 talk to your smart contract devs to generate the types files for you).
 
 ## Web3 wallet connectivity library
 
-There are a lot of libraries handling the connectvity to the web3 wallet, the most used one is
-[web3modal](https://web3modal.com/).
+There are a lot of libraries handling the connectvity to the web3 wallet, the
+most used one is [web3modal](https://web3modal.com/).
 
-And I would like to highlight another one that has a more friendly interface, that is [web3-onboard](https://onboard.blocknative.com/).
+And I would like to highlight another one that has a more friendly interface,
+that is [web3-onboard](https://onboard.blocknative.com/).
 
 ## Libraries with React hooks
 
-[useDapp](https://github.com/TrueFiEng/useDApp) as it provides easy to use React hooks and you can integrate it with
-web3modal or web3-onboard when initiating connection, just pass the `provider` object to useDApp's `activate` function.
+[useDapp](https://github.com/TrueFiEng/useDApp) as it provides easy to use React
+hooks and you can integrate it with web3modal or web3-onboard when initiating
+connection, just pass the `provider` object to useDApp's `activate` function.
 
-Also, there's another library [wagmi](https://wagmi.sh/) which provides more utilities such as erc20 abi.
+Also, there's another library [wagmi](https://wagmi.sh/) which provides more
+utilities such as erc20 abi.
 
-Example code more to come.
+## Numbers
+
+Another tricky place to web3 library is the number handling. I've seen some bugs
+that pass the truncated input to write the chain, but the truncated number is
+greater than the number on chain, which cannot be successfully written.
+
+Also, you would need to handle the number every time by calling ethers'
+`utils.formatUnits()` function.

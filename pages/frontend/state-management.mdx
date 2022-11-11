@@ -11,11 +11,11 @@ might want to use a State Management Library.
 
 ### Using Redux could make code a lot more cleaner:
 
-Writing `setState(state => ({...state, updatedAttr}))` in everywhere is annoying.
-That's why Redux uses `reducer` to encapsulate and record the update logic,
-this can effectively avoid the copy and paste mistake and having to use global search
-to change the update logic in case there is change in the state structure
-(such as you might want to normalize the data).
+Writing `setState(state => ({...state, updatedAttr}))` in everywhere is
+annoying. That's why Redux uses `reducer` to encapsulate and record the update
+logic, this can effectively avoid the copy and paste mistake and having to use
+global search to change the update logic in case there is change in the state
+structure (such as you might want to normalize the data).
 
 First we define a reducer to define actions and transformation of data:
 
@@ -59,45 +59,48 @@ const TodoList = () => {
 
 ### Redux also enforces you to use immutable state and pure functions to update the state
 
-There are some principle with redux to ensure the state update is predictable, including:
+There are some principle with redux to ensure the state update is predictable,
+including:
 
 - states are read-only
-- using a pure function to update the state using `reducer`,
-  which must be supplied with old `state` and `action` object
-  which has no side effects on `state`.
+- using a pure function to update the state using `reducer`, which must be
+  supplied with old `state` and `action` object which has no side effects on
+  `state`.
 
-That means, you cannot use `state.someRandomAttr = someRandomVal` to update the state,
-you have to use the `dispatch(action)` which is pure and has no side-effects, to update the state.
+That means, you cannot use `state.someRandomAttr = someRandomVal` to update the
+state, you have to use the `dispatch(action)` which is pure and has no
+side-effects, to update the state.
 
-And sometimes when I use the `setState()` from the `useState()` API,
-I might forget to pass a new object, instead I might just pass a
-reference (which might not trigger the re-render).
+And sometimes when I use the `setState()` from the `useState()` API, I might
+forget to pass a new object, instead I might just pass a reference (which might
+not trigger the re-render).
 
-This are the mistakes I made when I first started using React
-(which I know now might generate some unpredictable behavior),
-so if there's more new engineer that is getting started with React,
-by enforces them only update the state using the `dispatch` API
-(and its `reducer` is written by other more experienced engineers,
-this will make the project progress more smoothly.
+This are the mistakes I made when I first started using React (which I know now
+might generate some unpredictable behavior), so if there's more new engineer
+that is getting started with React, by enforces them only update the state using
+the `dispatch` API (and its `reducer` is written by other more experienced
+engineers, this will make the project progress more smoothly.
 
 ### Single source of truth makes development and debugging easier
 
-If the application state is stored in different components,
-using the react debugging tool could be hard to debug, because
-you'll have to drill down to that component to read the state.
+If the application state is stored in different components, using the react
+debugging tool could be hard to debug, because you'll have to drill down to that
+component to read the state.
 
-Single source of truth places the essential state in one place,
-making it easier the pinpoint the problem.
+Single source of truth places the essential state in one place, making it easier
+the pinpoint the problem.
 
-Also, making single source of truth could just serialize your server's data into the single store.
-When testing, the coupling of component and state are reduced,
-isolating the core application state from other component is making the unit testing easier.
+Also, making single source of truth could just serialize your server's data into
+the single store. When testing, the coupling of component and state are reduced,
+isolating the core application state from other component is making the unit
+testing easier.
 
 ## Global state saves you from the hell of prop drilling
 
-A common problem with a lot of React user is that when dealing with a tree of nested component,
-we have the pass the data all the way from parent component to child component using prop,
-which is commonly referred as prop drilling like this:
+A common problem with a lot of React user is that when dealing with a tree of
+nested component, we have the pass the data all the way from parent component to
+child component using prop, which is commonly referred as prop drilling like
+this:
 
 ```js
 import React, { useState } from "react";
@@ -141,15 +144,15 @@ function ChildC({ fName, lName }) {
 export default Parent;
 ```
 
-This is a vertical issue, there is also horizontal issue that a
-component might need to pass down a lot of properties like this:
+This is a vertical issue, there is also horizontal issue that a component might
+need to pass down a lot of properties like this:
 
 ```js
 <ChildC id={data.id} aName={data.aName} bName={data.bName} ... />
 ```
 
-By using Redux, we don't need to pass the component properties
-like this anymore, we just need to use the selector to get the states like this:
+By using Redux, we don't need to pass the component properties like this
+anymore, we just need to use the selector to get the states like this:
 
 ```js
 function ChildC() {
@@ -165,13 +168,13 @@ function ChildC() {
 
 ### React Thunk to handle async flow
 
-I think the biggest upside of Redux is that it actually allows
-you to write real async flow when updating the global state.
+I think the biggest upside of Redux is that it actually allows you to write real
+async flow when updating the global state.
 
-We introduce the concept of middleware now, which is similar to Express
-and Axios or Filters in Spring Boot, you could put middlewares
-(third party or even custom) between the action and the reducer.
-One of it is to solve the `async` logic flow using `Thunk`.
+We introduce the concept of middleware now, which is similar to Express and
+Axios or Filters in Spring Boot, you could put middlewares (third party or even
+custom) between the action and the reducer. One of it is to solve the `async`
+logic flow using `Thunk`.
 
 The `Thunk` framework itself is very simple, looks like this:
 
@@ -200,8 +203,8 @@ export const saveNewTodo = (text) => async (dispatch, getState) {
   }
 ```
 
-To dispatch the save todo in event handler, we need to call the
-action creator to create a thunk function, then pass the thunk to dispatch:
+To dispatch the save todo in event handler, we need to call the action creator
+to create a thunk function, then pass the thunk to dispatch:
 
 ```js
 import React, { useState } from 'react'
@@ -228,8 +231,8 @@ const Header = () => {
 
 ## Other State Management Libraries to reduce boilerplatey code
 
-One problem with Redux is that it could get very boilerplatey. There are
-other state management library that gives you other flavors:
+One problem with Redux is that it could get very boilerplatey. There are other
+state management library that gives you other flavors:
 
 - [RTK Query](https://redux-toolkit.js.org/rtk-query/overview)
 - [TanStack Query](https://tanstack.com/query/v4/?from=reactQueryV3&original=https://react-query-v3.tanstack.com/)
