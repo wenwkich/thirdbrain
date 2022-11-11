@@ -12,7 +12,7 @@ export default {
   footerEditLink: `Edit this page on GitHub`,
   logo: (
     <>
-      <span>Wendy's PoK on Web2/3</span>
+      <span>Wendy's Proof of Knowledge on Web2/3</span>
     </>
   ),
   head: (
@@ -20,7 +20,7 @@ export default {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta
         name="description"
-        content="Web3DevShill: My personal opinion, example and guide on your web3 dev journey"
+        content="PoK: My personal opinion, brain dump, example and guide on your web3 dev journey"
       />
       <meta name="og:title" content="web3" />
     </>

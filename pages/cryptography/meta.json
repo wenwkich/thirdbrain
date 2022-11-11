@@ -1,7 +1,6 @@
 {
   "hash": "Hash Functions",
   "mac-key-derivation": "MAC and Key Derivation",
-  "block-and-stream-cipher": "Block and Stream Cipher",
   "symmetric-cipher": "Symmetric Cipher",
   "asymmetric-cipher-ecc": "Asymmetric Cipher and ECC",
   "digital-signature": "Digital Signature"

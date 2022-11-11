@@ -1,0 +1,114 @@
+---
+title: Hash Functions
+---
+
+# Hash Functions
+
+Hash functions should be the topic every developer to know about, especially
+you've just started on developement.
+
+## Definition
+
+- one way function (inreversible)
+  - meaning infeasible to invert (must use brute-force method)
+- deterministic
+  - meaning given the same input, the output of a hash function must be the same
+- fast
+  - the calculation of hash should be fast
+- hard to analyze
+  - small input change yields result drastically different
+  - the result should be totally random just like someone smashed the keyboard
+- strong crypto hash functions are collision-proof (such as SHA-256)
+
+## Application
+
+The most common one is for **document integrity validation**. You will always
+see some files downloads are provided with a hash, that is for you to validate
+if the file you download has been tampered.
+
+One of the most senseless thing a backend developer can do is storing password
+directly in the database, if database is exploited, hacker coould easily figure
+out the password. **Passwords should be hashed instead.**
+
+## Application in blockchain
+
+It is initially used as something to make the block "immutable" (no one can
+change a historical block of a blockchain).
+
+Remind you the blockchain is also a data structure which **previous block's
+hash** will be included in the next block, so that the validator could validate
+the hashes from the start to end.
+
+To shorten the data stored in blockchain, **transaction are also hashed** so
+that it could be included in a structure called
+[Merkle Proof](https://ethereum.org/en/developers/tutorials/merkle-proofs-for-offline-data-integrity/),
+so that only the root is stored in blockchain, the rest of the proof is stored
+off the chain.
+
+The
+[Proof-of-Work](https://ethereum.org/en/developers/docs/consensus-mechanisms/pow/)
+is also using **hash functions as the difficulty** a miner has to "proof" that
+they have "work" on the blockchain.
+
+## Weakness
+
+Please be reminded if the result is intended not to be totally random, the
+likelihood for it to be exploited is larger than those who look totally
+different. Check
+[Profanity hack](https://halborn.com/explained-the-profanity-address-generator-hack-september-2022/),
+Wintermute (a crypto fund) losing millions of dollar in it ("a set of 1,000 GPUs
+could theoretically brute force the private keys of every 7-character vanity
+address generated using Profanity **within 50 days**").
+
+Your password also should be using something that's too easily known or
+repeatedly used, because someone could run the
+[rainbow table](https://www.geeksforgeeks.org/understanding-rainbow-table-attack/)
+on you, unless the application developer
+[salted](https://auth0.com/blog/adding-salt-to-hashing-a-better-way-to-store-passwords/)
+the password for you.
+
+## Secure Hash Algorithm
+
+This
+[doc](https://csrc.nist.gov/csrc/media/publications/fips/180/2/archive/2002-08-01/documents/fips180-2.pdf)
+should do the full explanation of the SHA family.
+
+The concept behind the algo is
+[Merkle-Damgård construction](https://en.wikipedia.org/wiki/Merkle%E2%80%93Damg%C3%A5rd_construction),
+the hashed value is just the last chaining words of bitwise computaions to the
+message block padded (initially), previous chaining words and the predefined
+constants (throughout the initialization and in between iterations).
+
+The computation of SHA is very a trivial process for developer to understand,
+but as developers, we need to understand SHA1 and some of the SHA2 (a newer
+family) is not safe either. SHA-256, SHA-386 and SHA-512 are safe to use (the
+number is the bits of output digest).
+
+Most of the following are just takeaways from the pdf, you might not able to
+understand if you don't look at the specific calculations:
+
+- SHA-1 and SHA-256 are for input less than 2^64 bits
+- SHA-384 and SHA-512 are for input less than 2^128 bits
+- SHA-1 generates 160 bits outcome, which is considered
+  [insecure](https://crypto.stackexchange.com/questions/48289/how-secure-is-sha1-what-are-the-chances-of-a-real-exploit)
+  - a collision could found at the cost of 2^80, which is feasible to attack
+- SHA-1 or SHA-2 are just repeatedly looping piping of bitwise operations word
+  by word (Merkle-Damgård construction)
+- in SHA-256, a word is 32 bits (and uses 8 words as variables to pipe
+  continuously, hence the 256 bits output), and in SHA-512, a word is 64 bits
+  (also uses 8 words to pipe, hence the 512 bits outputs)
+- SHA-256 uses a sequence of 64 constant 32-bits words which in fact are just
+  prime numbers, used within each iterations in the loop, meaning it's doing 64
+  iterations, whereas SHA-512 uses 80 constant 32-bits words
+
+There's a new family SHA-3, which contains Keccak-256 (solidity dev should be
+very familiar with)
+
+The major difference is that it uses
+[sponge functions](https://keccak.team/sponge_duplex.html), which solves a
+vulnerability that SHA-1 and some of the SHA-2 might face:
+[length-extension attacks](https://crypto.stackexchange.com/questions/3978/understanding-the-length-extension-attack)
+(Heckers could embed the message at the end to reproduce the collision without
+knowing the message)
+
+Most blockchains use SHA-256 / Keccak-256 algorithm which are collison-proof.
