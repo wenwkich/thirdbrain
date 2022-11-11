@@ -3,7 +3,7 @@
   "mac-key-derivation": "MAC and Key Derivation",
   "key-exchange": "Key Exchange",
   "symmetric-cipher": "Symmetric Cipher",
-  "asymmetric-cipher-ecc": "Asymmetric Cipher and ECC",
+  "asymmetric-cipher-ecc": "Asymmetric Cipher and Elliptical Curve Cipher",
   "digital-signature": "Digital Signature",
-  "zero-knowledge": "ZK"
+  "zero-knowledge": "Zero Knowledge"
 }

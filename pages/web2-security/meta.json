@@ -1,4 +1,6 @@
 {
   "intro": "Introduction",
-  "sql-injection": "SQL Injections"
+  "broken-access-control": "Broken Access Control",
+  "cryptographic-failures": "Cryptographic Failures",
+  "sql-injection": "Injections"
 }
