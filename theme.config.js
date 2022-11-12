@@ -20,7 +20,7 @@ export default {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta
         name="description"
-        content="This is my very exhaustive third brain (personal opinions, examples, guide, curated resources) on web2/3 development / security"
+        content="This is my very exhaustive third brain (personal opinions, guide, curated resources) on web2/3 development / security"
       />
       <meta name="og:title" content="web3" />
     </>

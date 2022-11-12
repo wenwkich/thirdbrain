@@ -38,7 +38,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0x407
 Your favorite web3 libraries just wrap all the complication of JSON RPC into a
 easier to use API.
 
-## Web3 wallet connectivity library
+## Web3 wallet modal libraries
 
 There are a lot of libraries handling the connectvity to the web3 wallet, the
 most used one is [web3modal](https://web3modal.com/).
@@ -52,12 +52,47 @@ There are also other toolkit by wallets like
 
 ## Libraries with React hooks
 
-[useDapp](https://github.com/TrueFiEng/useDApp) as it provides easy to use React
+[useDApp](https://github.com/TrueFiEng/useDApp) as it provides easy to use React
 hooks and you can integrate it with web3modal or web3-onboard when initiating
 connection, just pass the `provider` object to useDApp's `activate` function.
 
 Also, there's another library [wagmi](https://wagmi.sh/) which provides more
 utilities such as erc20 abi.
+
+My opinion is that, you should use useDApp if you want to integrate with other
+web3 modal library, that will give you a unified interface to get providers /
+account.
+
+If you will write your own modal and want to gain more control to the web3
+connectivity, use wagmi.
+
+## Multicall
+
+To reduce the call to the rpc, you should also consider using multicall.
+
+The multicall idea is originated from
+[MakerDAO's multicall](https://github.com/makerdao/multicall) contract.
+
+Note that this is different from Uniswap's multicall which will write to
+blockchain, MakerDAO's multicall do the query only.
+
+I think [ethcall](https://github.com/Destiner/ethcall) is good as it supports
+deployless contract. But the library is little bit confusing to use.
+
+I wrote a
+[declarative-multicall](https://www.npmjs.com/package/declarative-multicall) to
+simplfied the ethcall control for you.
+
+## Examples
+
+And you can see an example of
+[how to use declarative-multicall](https://github.com/wenwkich/simple-defi-dashboard)
+here. It includes other topic such as
+[how to useDApp with web3Modal](https://github.com/wenwkich/simple-defi-dashboard/blob/main/src/components/common/activateWeb3Modal.tsx)
+,
+[how to useDApp with web3-onboard](https://github.com/wenwkich/simple-defi-dashboard/blob/main/src/components/common/activateWeb3Onboard.tsx)
+also how to integrate it with
+[React Query](https://github.com/wenwkich/simple-defi-dashboard/tree/main/src/hooks)
 
 ## Numbers
 
@@ -66,4 +101,8 @@ that pass the truncated input to write the chain, but the truncated number is
 greater than the number on chain, which cannot be successfully written.
 
 Also, you would need to handle the number every time by calling ethers'
-`utils.formatUnits()` function.
+`ethers.utils.formatUnits()` function.
+
+## Examples
+
+I rolled up an example in the
