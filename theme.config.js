@@ -12,7 +12,7 @@ export default {
   footerEditLink: `Edit this page on GitHub`,
   logo: (
     <>
-      <span>wenwkich's Thirdbrain on Web2/3 Dev & Sec with ❤️</span>
+      <span>Thirdbrain: Everything I Know on Web2/3 Dev & Sec with ❤️</span>
     </>
   ),
   head: (
