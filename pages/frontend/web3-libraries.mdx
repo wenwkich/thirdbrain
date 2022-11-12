@@ -10,12 +10,33 @@ library to glue the web2 stuffs and web3 stuffs together, that is
 [ethers.js](https://github.com/ethers-io/ethers.js/), which I think it's simple
 to get started.
 
-TODO: abi & JSON RPC
-
 Between these two choices, much more people prefer to use `ethers.js`. I prefer
 to use [Typechain](https://github.com/dethcrypto/TypeChain) to generate the
 types at first with ethers.js used underlying (If you're only a frontend dev,
 talk to your smart contract devs to generate the types files for you).
+
+## Concept of JSON RPC
+
+Ethereum runs [JSON RPC](https://ethereum.org/en/developers/docs/apis/json-rpc/)
+protocol to interact (including reading blockchain state and write data to
+blockchain), versus web2 applications usually use REST API.
+
+For example, to call `eth_getBalance` method, you can write curl script like
+this:
+
+```
+// Request
+curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0x407d73d8a49eeb85d32cf465507dd71d507100c1", "latest"],"id":1}'
+// Result
+{
+  "id":1,
+  "jsonrpc": "2.0",
+  "result": "0x0234c8a3397aab58" // 158972490234375000
+}
+```
+
+Your favorite web3 libraries just wrap all the complication of JSON RPC into a
+easier to use API.
 
 ## Web3 wallet connectivity library
 
