@@ -1,6 +1,6 @@
 export default {
   projectLink: "https://github.com/wenwkich/thirdbrain", // GitHub link in the navbar
-  docsRepositoryBase: "https://github.com/wenwkich/thirdbrain/blob/master", // base URL for the docs repository
+  docsRepositoryBase: "https://github.com/wenwkich/thirdbrain/blob/main", // base URL for the docs repository
   titleSuffix: " - thirdbrain",
   nextLinks: true,
   prevLinks: true,
