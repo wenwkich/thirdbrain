@@ -1,7 +1,7 @@
 export default {
-  projectLink: "https://github.com/wenwkich/wenwkichpok", // GitHub link in the navbar
-  docsRepositoryBase: "https://github.com/wenwkich/wenwkichpok/blob/master", // base URL for the docs repository
-  titleSuffix: " – PoK",
+  projectLink: "https://github.com/wenwkich/thirdbrain", // GitHub link in the navbar
+  docsRepositoryBase: "https://github.com/wenwkich/thirdbrain/blob/master", // base URL for the docs repository
+  titleSuffix: " - thirdbrain",
   nextLinks: true,
   prevLinks: true,
   search: true,
@@ -12,7 +12,7 @@ export default {
   footerEditLink: `Edit this page on GitHub`,
   logo: (
     <>
-      <span>wenwkich's Proof of Knowledge on Web2/3 Dev & Sec with ❤️</span>
+      <span>wenwkich's Thirdbrain on Web2/3 Dev & Sec with ❤️</span>
     </>
   ),
   head: (
@@ -20,7 +20,7 @@ export default {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta
         name="description"
-        content="PoK: My personal opinion, brain dump, example and guide on your web3 dev journey"
+        content="This is my very exhaustive third brain (personal opinions, examples, guide, curated resources) on web2/3 development / security"
       />
       <meta name="og:title" content="web3" />
     </>
