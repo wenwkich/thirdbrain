@@ -1,0 +1,50 @@
+---
+title: Ethereum Concepts
+---
+
+# Ethereum Concepts
+
+Smart Contracts are the programs that **governs** the behavior of state in
+blockchains that are wrapped by state machines.
+
+It is **not** related to:
+
+- Machine Learning or Artificial Intelligence (not smart)
+- Legal (don't have legal bounds, not like a real-world contracts)
+- Automatically stuffs (you need to manipulate with a
+  [EOA](https://ethereum.stackexchange.com/questions/5828/what-is-an-eoa-account))
+
+We mentioned "state" & "machine", this is what Ethereum differs from Bitcoin,
+see [EVM](https://ethereum.org/en/developers/docs/evm/)
+
+A lot of people are confused by the buzzword "Virtual Machine", thinking it's
+really like a traditional VM using VirtualBox, a sandbox with Operation System
+running in it.
+
+Actually, the word VM refers to
+[virtualization](https://en.wikipedia.org/wiki/Virtualization), it refers to an
+abstract layer to a phsyical machine's resources like storage and networks.
+
+The EVM doc should also show you an illustration of VM, its execution layer is
+volatile and
+[stack-based](https://ethereum.stackexchange.com/questions/35628/why-is-the-ethereum-virtual-machine-designed-as-a-stack-based-language),
+versus the [register-based](https://en.wikipedia.org/wiki/Register_machine) one.
+
+And it has a virtual ROM which stores immutable contract codes, and a storage
+for accounts (smart contract writes to this account storage) and a storage for
+the world state.
+
+Why it is a "state" machine? Because it produced a
+[deterministic](https://en.wikipedia.org/wiki/Deterministic_system) and atomic
+(all or nothing) output given a input like a mathemetical function:
+
+```
+Y(S, T)= S'
+```
+
+> Given an old valid state (S) and a new set of valid transactions (T), the
+> Ethereum state transition function Y(S, T) produces a new valid output state
+> S'
+
+[eth.build](https://eth.build/) is also a good sandbox for you to know how
+ethereum works.

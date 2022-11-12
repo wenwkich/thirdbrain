@@ -1,0 +1,56 @@
+---
+title: Frameworks and Tools
+---
+
+# Frameworks and Tools
+
+Apart from writing solidity, you need a framework (with tools integrated) to
+help you test the code, deploy in the simulated / blockchain environement, or
+write some script do some block-ops.
+
+## [Remix](https://remix-ide.readthedocs.io/en/latest/)
+
+This one should be the easiest to get started cuz everything is in the browser.
+Supports [ethers.js](https://docs.ethers.io/v5/) and
+[web3.js](https://web3js.readthedocs.io/en/v1.8.1/). Suitable for those who
+don't want to use cli.
+
+And you can
+[connect Remix with local filesystem](https://remix-ide.readthedocs.io/en/latest/remixd.html#remixd-access-your-local-filesystem),
+so that you could write the code in the editor and do the testing in UI.
+
+I usually choose it when I want to use Metamask to deploy the contract (which
+other frameworks can't do really).
+
+## [Truffle](https://trufflesuite.com/)
+
+The framework to use back in the OG days.
+
+I think what's special about it is that you need to write migration contract and
+it provides a console that you could interactively write Javascript commands.
+
+It contains the ganache tools which can simulate a EVM and even support forking
+from existing blockchain.
+
+## [Hardhat](https://hardhat.org/tutorial)
+
+This is almost the default choice to smart contract development right now.
+
+I think why people like hardhat so much is because they provide a `console.log`
+that you can debug directly in the Solidity Code.
+
+Plus, you could integrate it with both ethers.js and web3.js to deploy the
+contract. I prefer [hardhat deploy](https://github.com/wighawag/hardhat-deploy)
+as it produce replicable deployments.
+
+It also provides a hardhat local network.
+
+## [Foundry](https://getfoundry.sh/)
+
+Usually I use hardhat to test, I couldn't take it because it's kinda slow.
+
+But Foundry came to combat that with a super fast testing toolkit.
+
+And it's most attractive feature is to allow testing in **Solidity**, so that
+you can write tests with efficiency. That really turns boring chores into
+something pleasurable.

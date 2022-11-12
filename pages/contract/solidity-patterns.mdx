@@ -1,0 +1,36 @@
+---
+title: Solidity Patterns
+---
+
+# Solidity Patterns
+
+This chapter talks about Solidity Pattern that allows someone to write secure
+code. Mainly takeaways from
+[this page](https://fravoll.github.io/solidity-patterns/), strongly recommend to
+give it a read and get familiar with it.
+
+## Highlight
+
+- [Checks Effects Interactions](https://fravoll.github.io/solidity-patterns/checks_effects_interactions.html):
+  prevents
+  [reentrancy attack](https://consensys.github.io/smart-contract-best-practices/attacks/reentrancy/)
+- [Secure Ether Transfer](https://fravoll.github.io/solidity-patterns/secure_ether_transfer.html):
+  use `transfer()` rather than `send()`, also prevent the reentrancy attack
+- [Randomness](https://fravoll.github.io/solidity-patterns/randomness.html) and
+  [Oracle](https://fravoll.github.io/solidity-patterns/oracle.html)
+- [Proxy Delegate](https://fravoll.github.io/solidity-patterns/proxy_delegate.html):
+  for contract upgradability
+- [Tight Variable Packing](https://fravoll.github.io/solidity-patterns/tight_variable_packing.html):
+  pack variables into a word (32 bytes, i.e. `uint256`) as much as you can to
+  save storage and gas
+
+## Other
+
+[solcurity](https://github.com/transmissions11/solcurity) also is a checklist on
+coding decision for economic and security concerns.
+
+[useful-solidity-patterns by dragonfly-xyz](https://github.com/dragonfly-xyz/useful-solidity-patterns)
+also have a list on useful solidity patterns.
+
+[Solidity Security by Sigma Prime](https://blog.sigmaprime.io/solidity-security.html)
+writes the anti-patterns of Solidity.

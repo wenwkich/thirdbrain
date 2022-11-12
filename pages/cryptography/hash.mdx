@@ -1,8 +1,8 @@
 ---
-title: Hash Functions
+title: Hash Functions and HMAC
 ---
 
-# Hash Functions
+# Hash Functions and HMAC
 
 Hash functions should be the topic every developer to know about, especially
 you've just started on developement.
@@ -67,7 +67,7 @@ on you, unless the application developer
 [salted](https://auth0.com/blog/adding-salt-to-hashing-a-better-way-to-store-passwords/)
 the password for you.
 
-## Secure Hash Algorithm
+## Secure Hash Algorithm (SHA)
 
 This
 [doc](https://csrc.nist.gov/csrc/media/publications/fips/180/2/archive/2002-08-01/documents/fips180-2.pdf)
@@ -112,3 +112,30 @@ vulnerability that SHA-1 and some of the SHA-2 might face:
 knowing the message).
 
 Most blockchains use SHA-256 / Keccak-256 algorithm which are collison-proof.
+
+## Hashed Message Authentication Code (HMAC)
+
+MAC's definition is just hash with a key (derived by a password usually):
+
+```
+HMAC(key, msg, hash_func) -> hash
+```
+
+### Key Derivation Function (KDF)
+
+The key should not be directly derived by hashing the password, because someone
+could run rainbow table like previously mentioned, instead it should be added
+with salt.
+
+```
+KDF(salt, password, hash_func) -> key
+```
+
+### Other KDF
+
+The most simple way to prevent someone from brute force attack is to iteratively
+run the hash with some padding, like
+[PBKDF2](https://cryptobook.nakov.com/mac-and-key-derivation/pbkdf2).
+
+[Scrypt](https://cryptobook.nakov.com/mac-and-key-derivation/scrypt) is a
+memory-intensive KDF, which is more resistant to GPU attacks.

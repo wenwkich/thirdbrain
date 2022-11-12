@@ -1,6 +1,5 @@
 {
-  "hash": "Hash Functions",
-  "mac-key-derivation": "MAC and Key Derivation",
+  "hash": "Hash Functions and HMAC",
   "key-exchange": "Key Exchange",
   "symmetric-cipher": "Symmetric Cipher",
   "asymmetric-cipher-ecc": "Asymmetric Cipher and Elliptical Curve Cipher",
