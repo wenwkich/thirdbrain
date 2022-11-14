@@ -43,9 +43,14 @@ export default {
         name="description"
         content="This is my very exhaustive third brain (personal opinions, guide, curated resources) on web2/3 development / security"
       />
-      <meta name="og:title" content="thirdbrain" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@wenwkich" />
+      <meta property="og:title" content="thirdbrain" />
+      <meta
+        property="og:description"
+        content="Thirdbrain: A very exhaustive third brain (personal opinions, guide, curated resources) on web2/3 development / security"
+      />
+      <meta name="apple-mobile-web-app-title" content="thirdbrain" />
     </>
   ),
   sidebar: {
