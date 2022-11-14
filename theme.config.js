@@ -49,6 +49,6 @@ export default {
     </>
   ),
   sidebar: {
-    menuCollapsed: true,
+    defaultMenuCollapseLevel: 0,
   },
 };
