@@ -1,6 +1,6 @@
 {
   "hash": "Hash Functions and HMAC",
-  "key-exchange": "Key Exchange",
+  "key-exchange": "Key Exchange and Diffie-Hellman",
   "symmetric-cipher": "Symmetric Cipher",
   "asymmetric-cipher-ecc": "Asymmetric Cipher and Elliptical Curve Cipher",
   "digital-signature": "Digital Signature",

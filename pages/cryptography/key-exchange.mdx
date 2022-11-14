@@ -1,0 +1,79 @@
+---
+title: Key Exchange and Diffie-Hellman
+---
+
+# Key Exchange and Diffie-Hellman
+
+Key Exchange is the protocol where two parties share a secret, typically for
+encrypted communications. There are two techniques:
+
+- key agreemment: two parties are involved, example:
+  - Diffie-Hellman (DHKE)
+  - Elliptic-Curve Diffie-Hellman (ECDH)
+- key transport: one party generate the key, the other party obtain the key from
+  it, typically through Public Key Infrastructure (PKI), examples:
+  - RSA key exchange
+
+## Diffie-Hellman Key Exchange (DHKE)
+
+[DHKE](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange) uses a
+**public channel** (insecure) to exchange crypto keys anonymously (doesn't need
+to have prior knowledge of each other), which is known to be
+**sniffing-resistant** (others cannot know the keys), but not resistant to
+man-in-the-middle (but other can sabotage your keys).
+
+## DHKE by mixing color
+
+This
+[section](https://cryptobook.nakov.com/key-exchange/diffie-hellman-key-exchange#key-exchange-by-mixing-colors)
+contains good illustration of how DHKE is like:
+
+1. Alice and Bob agrees on a certain color (this is what's public)
+2. Alice and Bob selects a secret color (this is secret)
+3. Alice and Bob mix the color in step 1 and step 2 and they are ready to
+   exchange
+4. Alice and Bob get each other's color and mix it with their own secret color,
+   get the **common secret**
+
+DHKE uses same concept but uses
+[discrete logarithms](https://en.wikipedia.org/wiki/Discrete_logarithm) and
+[modular exponentiations](https://en.wikipedia.org/wiki/Modular_exponentiation)
+instead of color mixing.
+
+## The math behind DHKE
+
+This
+[section](https://cryptobook.nakov.com/key-exchange/diffie-hellman-key-exchange#the-diffie-hellman-key-exchange-dhke-protocol)
+explains how DHKE is done mathematically. (The notation is a bit messy though).
+So I've cleared it up like this:
+
+> It uses the property of (g^a)^b mod p = (g^b)^a mod p, where g, a, b and p are
+> positive integers.
+
+> If we have A = g^a mod p and B = g^b mod p, we can calculate g^(ab) mod p,
+> without revealing a or b (which are called secret exponents).
+
+> Then it is known if we have m, g and p, and given m = g^s mod p, there is no
+> fast algo to find s.
+
+The "Cryptographic Explanation" page under
+[wikipedia](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange)
+did a good job explaining how does DHKE works, it even lighlights what secret
+and not, I'll summarize it using the analogy of mixing color:
+
+1. _Alice and Bob agrees on a certain color_
+   - they both choose a modulus p = 23 and base g = 5 (these ain't secrets)
+2. _Alice and Bob selects a secret color (this is secret)_
+   - Alice choose secret a = 4
+   - Bob choose secret b = 3 (these are secrets)
+3. _Alice and Bob mix the color in step 1 and step 2_
+   - Alice computes A = g^a mod p = 5^4 mod 23 = 4, sends A to Bob
+   - Bob computes B = g^b mod p = 5^3 mod 23 = 10, sends B to Alice
+4. _Alice and Bob get each other's color and mix it with their own secret color_
+   - Alice gets the common secret by s = B^a mod p = 10^4 mod 23 = 18
+   - Bob gets the common secret by s = A^b mod p = 4^3 mod 23 = 18
+
+Hence the common secret they got is 18!!!!
+
+Other method such as ECDH just replace the discrete log and mod with ellipical
+curve, I'm ready to discover that!
