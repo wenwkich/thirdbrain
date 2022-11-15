@@ -5,7 +5,7 @@ title: Hash Functions and HMAC
 # Hash Functions and HMAC
 
 Hash functions should be the topic every developer to know about, especially
-you've just started on developement.
+you've just started on development.
 
 ## Definition
 
@@ -27,7 +27,7 @@ see some files downloads are provided with a hash, that is for you to validate
 if the file you download has been tampered.
 
 One of the most senseless thing a backend developer can do is storing password
-directly in the database, if database is exploited, hacker coould easily figure
+directly in the database, if database is exploited, hacker could easily figure
 out the password. **Passwords should be hashed instead.**
 
 ## Application in blockchain
@@ -75,7 +75,7 @@ should do the full explanation of the SHA family.
 
 The concept behind the algo is
 [Merkle-Damgård construction](https://en.wikipedia.org/wiki/Merkle%E2%80%93Damg%C3%A5rd_construction),
-the hashed value is just the last chaining words of bitwise computaions to the
+the hashed value is just the last chaining words of bitwise computations to the
 message block padded (initially), previous chaining words and the predefined
 constants (throughout the initialization and in between iterations).
 
@@ -111,7 +111,7 @@ vulnerability that SHA-1 and some of the SHA-2 might face:
 (Heckers could embed the message at the end to reproduce the collision without
 knowing the message).
 
-Most blockchains use SHA-256 / Keccak-256 algorithm which are collison-proof.
+Most blockchains use SHA-256 / Keccak-256 algorithm which are collision-proof.
 
 ## Hashed Message Authentication Code (HMAC)
 

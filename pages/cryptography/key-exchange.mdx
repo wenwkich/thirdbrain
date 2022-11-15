@@ -7,7 +7,7 @@ title: Key Exchange and Diffie-Hellman
 Key Exchange is the protocol where two parties share a secret, typically for
 encrypted communications. There are two techniques:
 
-- key agreemment: two parties are involved, example:
+- key agreement: two parties are involved, example:
   - Diffie-Hellman (DHKE)
   - Elliptic-Curve Diffie-Hellman (ECDH)
 - key transport: one party generate the key, the other party obtain the key from
@@ -37,7 +37,7 @@ contains good illustration of how DHKE is like:
 
 DHKE uses same concept but uses
 [discrete logarithms](https://en.wikipedia.org/wiki/Discrete_logarithm) and
-[modular exponentiations](https://en.wikipedia.org/wiki/Modular_exponentiation)
+[modular exponentiation](https://en.wikipedia.org/wiki/Modular_exponentiation)
 instead of color mixing.
 
 ## The math behind DHKE
@@ -49,16 +49,16 @@ So I've cleared it up like this:
 
 > It uses the property of (g^a)^b mod p = (g^b)^a mod p, where g, a, b and p are
 > positive integers.
-
+>
 > If we have A = g^a mod p and B = g^b mod p, we can calculate g^(ab) mod p,
 > without revealing a or b (which are called secret exponents).
-
+>
 > Then it is known if we have m, g and p, and given m = g^s mod p, there is no
 > fast algo to find s.
 
 The "Cryptographic Explanation" page under
-[wikipedia](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange)
-did a good job explaining how does DHKE works, it even lighlights what secret
+[wikipedia](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange#Cryptographic_explanation)
+did a good job explaining how does DHKE works, it even highlights what secret
 and not, I'll summarize it using the analogy of mixing color:
 
 1. _Alice and Bob agrees on a certain color_
@@ -75,5 +75,5 @@ and not, I'll summarize it using the analogy of mixing color:
 
 Hence the common secret they got is 18!!!!
 
-Other method such as ECDH just replace the discrete log and mod with ellipical
+Other method such as ECDH just replace the discrete log and mod with elliptical
 curve, I'm ready to discover that!
