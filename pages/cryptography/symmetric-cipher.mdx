@@ -1,0 +1,73 @@
+---
+title: Symmetric Cipher
+---
+
+# Symmetric Cipher
+
+The concept of Symmetric Cipher could be explained by this
+[section](https://cryptobook.nakov.com/encryption-symmetric-and-asymmetric#symmetric-encryption-concepts-and-algorithms).
+Using the same **secret key** to encrypt and decrypt. The most popular
+encryption algo is AES.
+
+## Block Cipher vs Stream Cipher
+
+- block cipher's length is fixed (e.g. 256 bits)
+- stream cipher's length is flexible, coming as a sequence
+
+AES is a block cipher algo, but it could be transformed to stream cipher, see
+this [scheme](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation).
+
+## Block Cipher Modes
+
+What if the information of Block Cipher are larger than a block size? That's why
+a
+[Block Cipher Modes](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation)
+such as (CBC, CFB, OFB, CTR, EAX, CCM and GCM) are needed.
+
+- Common modes require a IV (initial vector), which are the random seed in the
+  start
+- CTR (Counter) is the good choice since it is secure, the length could be
+  arbitrary, but it doesn't offer authentication
+- GCM is an extension of CTR and adds message authentication to check integrity
+- CBC works in fixed size, a padding oracle is needed, hence it's susceptible to
+  such attack
+- The insecure one is ECB because the input yield the result of output with same
+  length, hence it doesn't offer cryptographic confusion
+- Most blocks like CBC, CTR and GCM supports random access
+
+### CTR (Counter) & GCM
+
+[This](https://cryptobook.nakov.com/symmetric-key-ciphers/cipher-block-modes#ctr-counter-block-mode)
+is a diagram that shows how block cipher is encrypted. GCM differs from CTR from
+adding a calculation of authentication code at the end of every block.
+
+## AES (Advanced Encryption Standard)
+
+AES could be operated at any key length, but the block size is always 128 bits.
+It's recommended to use AES-256 for higher security.
+
+The AES algo is also used along for password to key derivation like Scrypt and
+PBKDF2.
+
+## Encryption & Decryption
+
+The processes are illustrated
+[here](https://cryptobook.nakov.com/symmetric-key-ciphers/aes-cipher-concepts#the-aes-encryption-process).
+
+### Encryption
+
+1. Algo params are selected which could be hardcoded in the source code (encrypt
+   and decrypt must be the same).
+2. Derive the key by password using algo e.g. Scrypt.
+3. input msg + key ====> ciphertext + IV + MAC (encrypt)
+   - like AES-GCM, the auth code is already calculated
+   - ciphertext is calculated by input msg + random IV + key ======> ciphertext
+4. the algo should hold ciphertext + IV + MAC
+
+### Decryption
+
+1. Algo param should the same as Encryption
+2. ciphertext + IV + MAC ====> original msg + key (decrypt)
+3. original msg + key => MAC code
+4. compare decrypted MAC code and encrypted MAC code (if they are the same, the
+   message is correct)

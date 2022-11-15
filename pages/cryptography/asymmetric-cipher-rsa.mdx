@@ -1,0 +1,98 @@
+---
+title: Asymmetric Cipher and RSA
+---
+
+import { Callout } from "nextra-theme-docs";
+
+# Asymmetric Cipher and RSA
+
+The most common asymmetric algorithms are RSA and ECC. The idea of "asymmetric"
+is that unlike "symmetric", it uses two key, one is **public key** (publicly
+known & can be exposed) and the other one is **private key** (should be kept
+secret). The benefit is to make key exchange less of a hassle.
+
+## Public Key Cryptography - Concepts
+
+The idea behind PKC is easy, as
+[illustrated](https://cryptobook.nakov.com/encryption-symmetric-and-asymmetric#public-key-encryption-decryption).
+
+<Callout>
+  Use **public key** to encrypt, and then use **private key** to decrypt.
+</Callout>
+
+## Digital Signature - Concepts
+
+The idea behind the Digital Signature is exactly the reverse of PKC, as
+[illustrated](https://cryptobook.nakov.com/encryption-symmetric-and-asymmetric#signatures-asymmetric-signing-verification).
+
+Note that digital signatures are not for encryption, it's for validation to know
+a message is issued by someone who holds the private key.
+
+<Callout>Use **private key** to sign, use **public key** to verify.</Callout>
+
+## RSA (Rivest-Shamir-Adleman)
+
+### Math property
+
+RSA uses the property of
+`(m^e)^d = (m^d)^e = m mod n for all m in range of [0...n)`.
+
+You can see `m` as the message, `e` as the encryption key and `d` as the
+decryption key.
+
+### Process
+
+This [article](https://www.educative.io/answers/what-is-the-rsa-algorithm) or
+[wikipedia](<https://en.wikipedia.org/wiki/RSA_(cryptosystem)#Key_generation>)
+explains what RSA is like:
+
+1. select two large prime number: `x`, `y`
+   - `x` and `y` should be kept secret and choose randomly
+2. calculate `n = x * y`
+   - `n` is used as modulus and part of the private/public key
+3. calculate `totient(n) = (x-1)(y-1)` (usually totient is the least common
+   multiple and may be calculated by euclidean algo)
+   - `totient(n)` should be kept secret
+4. select an integer `e`, so that `e` is co-prime to `totient(n)`
+   - co-prime means two integers' greatest common divisor is 1, i.e.
+     `gcd(e, totient(n)) = 1`
+   - `1 < e < totient(n)`, `(n, e)` makes up the **public key (used for
+     encryption & signature verification)**
+5. calculate `e*d = 1 mod totient(n)`
+   - `d` could be found using
+     [extended euclidean algorithm](https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm),
+     and the pair `(n, d)` makes up the **private key (used for decryption &
+     signing)**
+
+### Encryption & Decryption
+
+Let's suppose Bob holds the **private key**, and he made the public key known to
+everyone else.
+
+<Callout>
+  Alice wants to write a ciphertext to Bob so that only Bob knows the original
+  message, so she encrypts a plain text `P`, and derives the ciphertext `C` with
+  `C = P^e mod n` to send to Bob
+</Callout>
+<Callout>
+  Bob then recievea ciphertext `C`, only he can decrypt the plain text `P` with
+  `P = C^d mod n`
+</Callout>
+
+### How to apply the keys to Digital Signatures?
+
+First, Bob need to derive the hash `h` from the message, i.e. `h = hash(msg)`,
+and need to attach the message with the hash to the public.
+
+<Callout>
+  Bob wants to sign a message so that Alice and everyone else could know the
+  message is issued by Bob, so he signs a signature `S`, which is the encrypted
+  `h` using **private key**: `S = h^d mod n`
+</Callout>
+<Callout>
+  Alice (and everyone else) is given a signature `S`, the hash `h'` could be
+  found using **public key** `h' = S^e mod n`
+</Callout>
+
+Finally, anyone just have to compare the `h'` and `h`, so that they could know
+if the signature is really signed by the Bob, who hold the private key.

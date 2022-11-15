@@ -1,8 +1,9 @@
 {
+  "introduction": "Introduction",
   "hash": "Hash Functions and HMAC",
   "key-exchange": "Key Exchange and Diffie-Hellman",
   "symmetric-cipher": "Symmetric Cipher",
-  "asymmetric-cipher-ecc": "Asymmetric Cipher and Elliptical Curve Cipher",
-  "digital-signature": "Digital Signature",
-  "zero-knowledge": "Zero Knowledge"
+  "asymmetric-cipher-rsa": "Asymmetric Cipher and RSA",
+  "ecc-ecdsa": "Elliptic Curve Cipher And ECDSA",
+  "zk": "ZK"
 }
