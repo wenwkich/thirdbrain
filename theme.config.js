@@ -41,14 +41,14 @@ export default {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta
         name="description"
-        content="This is my very exhaustive personal opinions, brain dump, study notes, guide, curated resources on web2/3 development / security"
+        content="This is my very exhaustive personal opinions, brain dump, study notes, guide, curated resources on web2/3 development"
       />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@wenwkich" />
       <meta property="og:title" content="thirdbrain" />
       <meta
         property="og:description"
-        content="Thirdbrain: A very exhaustive third brain (personal opinions, brain dump, study notes, guide, curated resources) on web2/3 development / security"
+        content="Thirdbrain: A very exhaustive third brain (personal opinions, brain dump, study notes, guide, curated resources) on web2/3 development"
       />
       <meta name="apple-mobile-web-app-title" content="thirdbrain" />
     </>

@@ -4,6 +4,5 @@
   "key-exchange": "Key Exchange and Diffie-Hellman",
   "symmetric-cipher": "Symmetric Cipher",
   "asymmetric-cipher-rsa": "Asymmetric Cipher and RSA",
-  "ecc-ecdsa": "Elliptic Curve Cipher And ECDSA",
-  "zk": "ZK"
+  "ecc-ecdsa": "Elliptic Curve Cipher And ECDSA"
 }

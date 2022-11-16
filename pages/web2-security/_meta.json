@@ -1,6 +1,0 @@
-{
-  "intro": "Introduction",
-  "broken-access-control": "Broken Access Control",
-  "cryptographic-failures": "Cryptographic Failures",
-  "sql-injection": "Injections"
-}

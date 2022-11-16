@@ -4,9 +4,7 @@
   "frontend": "Frontend",
   "contract": "Smart Contract",
   "cryptography": "Cryptography",
-  "web2-security": "Web2 Security",
-  "blockchain-security": "Blockchain Security",
-  "ethereum-core": "Ethereum Core",
-  "backend-distributed-system": "Backend & Distributed System",
-  "cicd": "CI/CD"
+  "zero-knowledge": "Zero-Knowledge",
+  "distributed-system": "Distributed System",
+  "ethereum-core": "Ethereum Core"
 }
